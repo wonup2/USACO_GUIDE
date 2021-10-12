@@ -10,7 +10,7 @@ public class billboard {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		in = new Scanner(new File("billboard.in"));
+		in = new Scanner(new FileReader("billboard.in"));
 		out = new PrintWriter(new File("billboard.out"));
 		init();
 		solve();
@@ -20,6 +20,7 @@ public class billboard {
 	}
 	
 	static void init() {
+		
 		b1 = new pos(in.nextInt(), in.nextInt(), in.nextInt(), in.nextInt());
 		b2 = new pos(in.nextInt(), in.nextInt(), in.nextInt(), in.nextInt());
 		t = new pos(in.nextInt(), in.nextInt(), in.nextInt(), in.nextInt());
