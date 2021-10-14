@@ -4,59 +4,57 @@ public class CSES1092 {
 
 	static Scanner in;
 	static long n, sum;
-	
+	static HashSet<Integer> a, b;
 	public static void main(String[] args) {
 
 		in = new Scanner(System.in);
+		init();
 		
+	}	
+	
+	static void init() {
 		n = in.nextLong();
-		
-		//first
 		sum = n*(n+1)/2;
 		
-		if(sum % 2 != 0) System.out.println("NO");
+		if(sum%2!=0) System.out.println("NO");
 		else {
 			System.out.println("YES");
-			sum /= 2;
 			solve();
 		}
-		
 	}
-
+	
 	static void solve() {
+		a = new HashSet<Integer>();
+		b = new HashSet<Integer>();
 		
-		//second
-		HashSet<Integer> g1 = new HashSet<Integer>();
-		HashSet<Integer> g2 = new HashSet<Integer>();
-
-		int t = (int)n;
+		for(int i=1; i<=n; i++) a.add(i);
 		
-		for(int i=1; i<=t; i++) g1.add(i);
+		sum /=2;
 		
-		while(sum > 0) {
+		while(sum>0) {
 			
-			if(sum-t < 0) {
-				g1.remove((int)sum);
-				g2.add((int)sum);
+			if(sum<n) {
+				b.add((int)sum);
+				a.remove((int)sum);
 				break;
 			}
 			else {
-				sum-=t;
-				g1.remove(t);
-				g2.add(t);
-				t--;
-			}			
+				b.add((int)n);
+				a.remove((int)n);
+				sum-=n;
+				n--;
+			}
 		}
 		
-		//output
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append(g1.size()).append("\n");
-		for(int s: g1) sb.append(s).append(" ");		
+		sb.append(a.size()).append("\n");
+		for(int s:a) sb.append(s).append(" ");
 		
-		sb.append("\n").append(g2.size()).append("\n");
-		for(int s: g2) sb.append(s).append(" ");
-				
+		sb.append("\n").append(b.size()).append("\n");
+		for(int s:b) sb.append(s).append(" ");
+		
 		System.out.println(sb.toString());
-	}	
+
+	}
 }
