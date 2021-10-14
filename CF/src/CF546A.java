@@ -11,7 +11,7 @@ public class CF546A {
 		
 		long sum = k*(w*(w+1)/2);
 		
-		System.out.println(sum-n>0? sum-n:0);
+		System.out.println(sum-n > 0 ? sum-n : 0);
 	}
 
 }

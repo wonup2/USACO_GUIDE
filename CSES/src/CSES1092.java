@@ -13,10 +13,12 @@ public class CSES1092 {
 	}	
 	
 	static void init() {
+	
 		n = in.nextLong();
-		sum = n*(n+1)/2;
 		
-		if(sum%2!=0) System.out.println("NO");
+		sum = n * (n+1)/2;
+		
+		if(sum % 2 != 0) System.out.println("NO");
 		else {
 			System.out.println("YES");
 			solve();
@@ -24,34 +26,34 @@ public class CSES1092 {
 	}
 	
 	static void solve() {
-		a = new HashSet<Integer>();
-		b = new HashSet<Integer>();
-		
-		for(int i=1; i<=n; i++) a.add(i);
 		
 		sum /=2;
 		
+		a = new HashSet<Integer>();
+		b = new HashSet<Integer>();
+		
+		for(int i = 1; i<=n; i++) a.add(i);
+		
 		while(sum>0) {
 			
-			if(sum<n) {
-				b.add((int)sum);
+			if(sum-n <0) {
 				a.remove((int)sum);
+				b.add((int)sum);
 				break;
 			}
-			else {
-				b.add((int)n);
-				a.remove((int)n);
-				sum-=n;
-				n--;
-			}
+						
+			a.remove((int)n);
+			b.add((int)n);
+			sum-=n;
+			n--;
 		}
 		
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append(a.size()).append("\n");
+		sb.append(a.size()).append("\n");		
 		for(int s:a) sb.append(s).append(" ");
 		
-		sb.append("\n").append(b.size()).append("\n");
+		sb.append("\n").append(b.size()).append("\n");		
 		for(int s:b) sb.append(s).append(" ");
 		
 		System.out.println(sb.toString());
