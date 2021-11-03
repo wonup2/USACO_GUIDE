@@ -19,38 +19,39 @@ public class CF1216 {
 	}
 	static void solve() {
 		long overlap = ol(a, b) + ol(a, c) - ol(a, b, c);
-//		System.out.println(ol(a, b));
-//		System.out.println(ol(a, c));
-//		System.out.println(ol(a, b, c));
+		long area = (a.x1-a.x2) * (a.y1-a.y2);		
+		System.out.println(area + " " + overlap);
+		System.out.println(ol(a,b));
+		System.out.println(ol(a,c));
+		System.out.println(ol(a,b,c));
 
-		long area = Math.abs(a.x1-a.x2) * Math.abs(a.y1-a.y2);
-		
 		if(overlap < area) System.out.println("YES");
 		else System.out.println("NO");
 	}
 
 	static long ol(point a, point b) {
-		long maxX = Math.max(a.x1, b.x1);
-		long minX = Math.min(a.x2, b.x2);
-		long maxY = Math.max(a.y1, b.y1);
-		long minY = Math.min(a.y2, b.y2);
-		if(maxX>minX||maxY>minY) return 0;
-		return (minX-maxX)*(minY-maxY);
+		long left = Math.max(a.x1, b.x1);
+		long right = Math.min(a.x2, b.x2);
+		long bottom = Math.max(a.y1, b.y1);
+		long top = Math.min(a.y2, b.y2);
+		
+		if(left > right || bottom > top) return 0;
+		return (right - left) * (top - bottom);
 	}
 	
 	static long ol(point a, point b, point c) {
-		long maxX = Math.max(a.x1, Math.max(b.x1, c.x1));
-		long minX = Math.min(a.x2, Math.min(b.x2, c.x2));
-		long maxY = Math.max(a.y1, Math.max(b.y1, c.y1));
-		long minY = Math.min(a.y2, Math.min(b.y2, c.y2));
+		long left = Math.max(a.x1, Math.max(b.x1, c.x1));
+		long right = Math.min(a.x2, Math.min(b.x2, c.x2));
+		long bottom = Math.max(a.y1, Math.max(b.y1, c.y1));
+		long top = Math.min(a.y2, Math.min(b.y2, c.y2));
 		
-		if(maxX>minX||maxY>minY) return 0;
-		return (minX-maxX)*(minY-maxY);
+		if(left > right || bottom > top) return 0;
+		return (right - left) * (top - bottom);
 	} 
 
 	static class point{
-		int x1, y1, x2, y2;
-		point(int a, int b, int c, int d){
+		long x1, y1, x2, y2;
+		point(long a, long b, long c, long d){
 			x1 = a; y1 = b; 
 			x2 = c; y2 = d; 
 		}
