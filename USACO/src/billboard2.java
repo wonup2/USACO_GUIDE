@@ -5,54 +5,58 @@ public class billboard2 {
 
 	static Scanner in;
 	static PrintWriter out;
+	static String filename = "billboard";
+	static int ans, x1, y1, x2, y2, minX, maxX, minY, maxY;
 	static boolean a[][];
-	static int x1, y1, x2, y2;
 	
 	public static void main(String[] args) throws IOException {
 
-		in = new Scanner(new File("billboard.in"));
-		out = new PrintWriter(new File("billboard.out"));
-		
+		in = new Scanner(new File(filename+".in"));		
+		out = new PrintWriter(new File(filename+".out")); 
 		init();
-		solve();
-		
+		solve();		
 		in.close();
 		out.close();
 	}
 	
-	static void init() {
+	static void init() throws IOException {	
 		
 		a = new boolean[2001][2001];
-			 
-		fill(true);
-		fill(false);		
+		minX = Integer.MAX_VALUE;
+		maxX = Integer.MIN_VALUE;
+		minY = Integer.MAX_VALUE;
+		maxY = Integer.MIN_VALUE;
 	}
-
 	
-	static void fill(boolean s) {
-		 x1 = in.nextInt() + 1000;
-		 y1 = in.nextInt() + 1000;
-		 x2 = in.nextInt() + 1000;
-		 y2 = in.nextInt() + 1000;
-		 
+	static void solve() throws IOException {
+		//billboard 1
+		x1 = in.nextInt()+1000;
+		y1 = in.nextInt()+1000;
+		x2 = in.nextInt()+1000;
+		y2 = in.nextInt()+1000;
+		
 		for(int i=x1; i<x2; i++) {
-			for(int j=y1; j<y2; j++) {
-				a[i][j] = s;
+			for(int j = y1; j<y2; j++) {
+				a[i][j] = true;
 			}
 		}
-	}
-	
-	static void solve() {
 		
-		int minX = 2001;
-		int maxX = 0;
-		int minY = 2001;
-		int maxY = 0;
+		//billboard 2
+		x1 = in.nextInt()+1000;
+		y1 = in.nextInt()+1000;
+		x2 = in.nextInt()+1000;
+		y2 = in.nextInt()+1000;
 		
+		for(int i=x1; i<x2; i++) {
+			for(int j = y1; j<y2; j++) {
+				a[i][j] = false;
+			}
+		}
+		
+		//check showing part of billboard 1
 		boolean flag = false;
-		
 		for(int i=0; i<2001; i++) {
-			for(int j=0; j<2001; j++) {
+			for(int j = 0; j<2001; j++) {
 				if(a[i][j]) {
 					minX = Math.min(minX, i);
 					maxX = Math.max(maxX, i);
@@ -61,11 +65,11 @@ public class billboard2 {
 					flag = true;
 				}
 			}
-		}		
+		}
 		
-		int ans = (maxX-minX+1) * (maxY-minY+1);
-		
-		if(flag) out.println(ans);
-		else out.println(0);
+		ans = (maxX-minX+1) * (maxY-minY+1);
+		if(!flag) ans = 0;
+		out.println(ans);
 	}
+
 }

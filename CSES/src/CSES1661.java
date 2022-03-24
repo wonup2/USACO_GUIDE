@@ -25,7 +25,7 @@ public class CSES1661 {
 		for(int i=1; i<=n; i++) a[i] = a[i-1] + Long.parseLong(st.nextToken());
 		m = new HashMap<Long, Integer>();
 		
-		//System.out.println(Arrays.toString(a));
+		System.out.println(Arrays.toString(a));
 	}
 	
 	static void solve() throws IOException {

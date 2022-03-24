@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class USACO_Paint {
+public class USACO_Paint_Silver {
 
 	//static Scanner in;
 	static BufferedReader in;

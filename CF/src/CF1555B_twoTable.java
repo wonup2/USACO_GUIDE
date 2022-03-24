@@ -3,14 +3,12 @@ import java.io.*;
 
 public class CF1555B_twoTable {
 
-	//static Scanner in;
 	static BufferedReader in;
 	static StringTokenizer st;
-	static int n, W, H, x1, y1, x2, y2, w1, h1, w2, h2, s1, s2, moveW, moveH, ans;
+	static int n, wr, hr, x1, y1, x2, y2, w1, h1, w2, h2, s1, s2, moveW, moveH, ans;
 	
 	public static void main(String[] args) throws IOException {
 
-		//in = new Scanner(new File("temp.in"));		
 		in = new BufferedReader(new InputStreamReader(System.in));
 		n = Integer.parseInt(in.readLine());
 		
@@ -25,8 +23,8 @@ public class CF1555B_twoTable {
 	static void init() throws NumberFormatException, IOException {	
 		
 		st = new StringTokenizer(in.readLine());
-		W = Integer.parseInt(st.nextToken());
-		H = Integer.parseInt(st.nextToken());
+		wr = Integer.parseInt(st.nextToken());
+		hr = Integer.parseInt(st.nextToken());
 		
 		st = new StringTokenizer(in.readLine());
 		x1 = Integer.parseInt(st.nextToken());
@@ -46,17 +44,17 @@ public class CF1555B_twoTable {
 	
 	static void solve() throws IOException {
 		
-		if(w1+w2>W && h1+h2>H) ans = -1;
+		if(w1+w2>wr && h1+h2>hr) ans = -1;
 		else {		
-			if(w1+w2<=W) {
+			if(w1+w2<=wr) {
 				s1 = x1;
-				s2 = W-x2;
+				s2 = wr-x2;
 				if(s1>=w2 || s2>=w2) ans = 0;
 				else ans = Math.min(w2-s1, w2-s2);	
 			}
-			if(h1+h2<=H) {
+			if(h1+h2<=hr) {
 				s1 = y1;
-				s2 = H-y2;
+				s2 = hr-y2;
 
 				if(s1>=h2 || s2>=h2) ans = 0;
 				else ans = Math.min(ans, Math.min(h2-s1, h2-s2));
