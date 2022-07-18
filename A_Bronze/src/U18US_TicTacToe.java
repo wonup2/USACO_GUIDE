@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class US_BR_ttt {
+public class U18US_TicTacToe {
 	static Scanner in;
 	static PrintWriter out;
 	static char a[][];
