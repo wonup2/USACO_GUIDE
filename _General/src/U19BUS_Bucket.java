@@ -1,0 +1,59 @@
+import java.util.*;
+import java.io.*;
+
+
+public class U19BUS_Bucket {
+
+	static Scanner in;
+	static PrintWriter out;
+	static int br, bc, rr, rc, lr, lc;
+	static char a[][];
+	public static void main(String[] args) throws IOException {
+		
+		//in = new Scanner(System.in);
+
+		in = new Scanner(new File("buckets.in"));
+		out = new PrintWriter(new File("buckets.out"));
+		
+		a = new char[10][];
+		for(int i=0; i<10; i++)
+			a[i] = in.nextLine().toCharArray();
+		
+		
+		solve();
+		in.close();
+		out.close();
+	}
+
+	static void solve() {
+		
+		for (int i=0; i<10; i++) {
+			for (int j=0; j<10; j++) {
+				if(a[i][j]=='B') {
+					br = i;
+					bc = j;
+				}
+				else if(a[i][j]=='R') {
+					rr = i;
+					rc = j;
+				}
+				else if(a[i][j]=='L') {
+					lr = i;
+					lc = j;
+				}
+			}
+		}
+		
+		int ans = Math.abs(br-lr) + Math.abs(bc-lc)-1;
+		
+		if(check()) ans += 2;				
+		
+		out.println(ans);
+	}
+	
+	static boolean check() {
+		return (lr==rr && rr==br && (lc<rc && rc<bc || bc<rc && rc<lc)) || 
+				(lc==rc && rc==bc && (lr<rr && rr<br || br<rr && rr<lr));
+		
+	}
+}

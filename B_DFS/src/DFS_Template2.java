@@ -1,80 +1,78 @@
-//Adjacency Graph - How many islands?
-/*
-4 5
-1 1 1 0 0
-1 1 0 0 1
-1 0 0 1 1
-0 0 1 0 0
-
-3
+import java.io.*;
+import java.util.*;
+/* 
+Adjacency List
+7 5
+1 2
+2 3
+3 4
+5 6
+6 7
 */
-import java.util.*; 
-public class DFS_Template2{
+public class DFS_Template2 {
 	
-	static int dx[] = { 0,0,-1,1 };
-	static int dy[] = { -1,1,0,0 };
-	static int a[][], n, m, cnt;
-	static Scanner in;
+	static BufferedReader in;
+	static PrintWriter out;
+	static StringTokenizer st;
 	
-	public static void main(String[] args) {
-		
-		in = new Scanner(System.in);
+	static int n, m, ans;
+	static ArrayList<Integer> a[];
+	static boolean v[];
+	
+	public static void main(String[] args) throws IOException {
+		//in = new BufferedReader(new FileReader("xxx.in"));
+		in = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintWriter(new BufferedWriter(new FileWriter("xxx.out")));		
 		init();
-		solve();
-		in.close();		
+		solve();		
+		in.close();
+		out.close();
 	}
 	
-	private static void init() {
+	static void init() throws IOException {
+			
+		st = new StringTokenizer(in.readLine());		
+		n = Integer.parseInt(st.nextToken());				
+		m = Integer.parseInt(st.nextToken());		
+
+		a = new ArrayList[n];
 		
-		n = in.nextInt();
-		m = in.nextInt();
-		a = new int[n][m];
-		
-		for(int i=0; i<n; i++) {
-			for(int j=0; j<m; j++) {
-				a[i][j] = in.nextInt();
-			}
-		}
-		
+		for(int i = 0; i < n; i++) 
+			a[i] = new ArrayList<Integer>();	
+				
+		for(int i = 0; i < m; i++) {
+			st = new StringTokenizer(in.readLine());
+			int x = Integer.parseInt(st.nextToken())-1;
+			int y = Integer.parseInt(st.nextToken())-1;
+			a[x].add(y);
+			a[y].add(x);
+		}			
+		v = new boolean[n];
 	}
 	
-	private static void solve() {
-	
-		int ans=0;
+	static void solve() throws IOException {
+		ans = 0;
+		//<---- Collection for start city  city
 		for(int i=0; i<n; i++) {
-			for(int j=0; j<m; j++) {
-				if(a[i][j]==1) {
-					dfs(i,j);					
-					ans++;					
-				}
-			}
+			if(!v[i]) {	
+				
+				///add start city
+				dfs(i);	
+				ans++;
+			}	
 		}
 		
 		System.out.println(ans);
+		
 	}
+	
+	static void dfs(int i) {
+		v[i] = true;
 		
-	static void dfs(int x, int y) {
-		
-		if(a[x][y]==0) return;
-		
-		a[x][y]=0;
-		for(int i=0; i<4; i++) {
-			int nx = x + dx[i];
-			int ny = y + dy[i];
-			if(nx<0||ny<0||nx>=n||ny>=m||a[nx][ny]==0) continue;
-			
-			dfs(nx, ny);			
+		for(int e:a[i]) {
+			if(!v[e]) {				
+				dfs(e);			
+			}
 		}
-	}
+	}		
 }
-
-
-/*
-5 5
-0 0 0 0 0 
-0 0 1 0 0 
-0 1 1 1 0 
-0 1 0 1 1
-0 0 0 0 1
-
-*/

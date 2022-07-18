@@ -1,71 +1,74 @@
-import java.io.*;
-import java.util.*;
-/* 
-Adjacency List
-7 5
-1 2
-2 3
-3 4
-5 6
-6 7
-*/
-public class DFS_Template1 {
-	
-	static BufferedReader in;
-	static PrintWriter out;
-	static StringTokenizer st;
-	
-	static int n, m, ans;
-	static ArrayList<Integer> a[];
-	static boolean v[];
-	
-	public static void main(String[] args) throws IOException {
-		//in = new BufferedReader(new FileReader("xxx.in"));
-		in = new BufferedReader(new InputStreamReader(System.in));
-		out = new PrintWriter(new BufferedWriter(new FileWriter("xxx.out")));		
-		init();
-		solve();		
-		in.close();
-		out.close();
-	}
-	
-	static void init() throws IOException {
-			
-		st = new StringTokenizer(in.readLine());		
-		n = Integer.parseInt(st.nextToken());				
-		m = Integer.parseInt(st.nextToken());		
+//Adjacency Graph - How many islands?
+/*
+4 5
+1 1 1 0 0
+1 1 0 0 1
+1 0 0 1 1
+0 0 1 0 0
 
-		a = new ArrayList[n];
+3
+*/
+import java.util.*; 
+public class DFS_Template1{
+	
+	static int dr[] = { -1, 1, 0, 0 };
+	static int dc[] = { 0, 0, -1, 1 };
+	static int a[][], n, m, cnt;
+	static Scanner in;
+	
+	public static void main(String[] args) {
 		
-		for(int i = 0; i < n; i++) a[i] = new ArrayList<Integer>();	
-				
-		for(int i = 0; i < m; i++) {
-			st = new StringTokenizer(in.readLine());
-			int x = Integer.parseInt(st.nextToken())-1;
-			int y = Integer.parseInt(st.nextToken())-1;
-			a[x].add(y);
-			a[y].add(x);
-		}		
-		System.out.println(Arrays.toString(a));
+		in = new Scanner(System.in);
+		init();
+		solve();
+		in.close();		
 	}
 	
-	static void solve() throws IOException {
-		ans = 0;
-		for(int i=0; i<n; i++) {
-			if(!v[i]) {	
-				dfs(i);	
-				ans++;
-			}	
-		}
+	static void init() {
+		
+		n = in.nextInt();
+		m = in.nextInt();
+		a = new int[n][m];
+		
+		for(int i=0; i<n; i++) 
+			for(int j=0; j<m; j++) 
+				a[i][j] = in.nextInt();		
 	}
 	
-	static void dfs(int i) {
-		v[i] = true;
+	static void solve() {
+	
+		cnt=0;
+		for(int i=0; i<n; i++) 
+			for(int j=0; j<m; j++) 
+				if(a[i][j]==1) {
+					dfs(i,j);					
+					cnt++;					
+				}
+					
+		System.out.println(cnt);
+	}
 		
-		for(int e:a[i]) {
-			if(!v[e]) {				
-				dfs(e);			
-			}
+	static void dfs(int r, int c) {
+	
+		a[r][c]=0;
+		
+		for(int i=0; i<4; i++) {
+			int nr = r + dr[i];
+			int nc = c + dc[i];
+			if(nr<0||nc<0||nr>=n||nc>=m||a[nr][nc]==0) continue;
+			
+			dfs(nr, nc);			
 		}
-	}		
+	}
 }
+
+
+/*
+5 5
+0 0 0 0 0 
+0 0 1 0 0 
+0 1 0 1 0 
+0 1 0 1 1
+0 0 0 0 1
+
+*/
