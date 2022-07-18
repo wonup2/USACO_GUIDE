@@ -32,11 +32,6 @@ public class U19BFeb_MeasuringTraffic {
 			a[i] = Integer.parseInt(st.nextToken());
 			b[i] = Integer.parseInt(st.nextToken());
 		}
-		
-//		System.out.println(Arrays.toString(c));
-//		System.out.println(Arrays.toString(a));
-//		System.out.println(Arrays.toString(b));
-
 	}
 	
 	static void solve() {
@@ -78,7 +73,5 @@ public class U19BFeb_MeasuringTraffic {
 			}
 		}
 		out.println(left+" "+right);
-
 	}
-
 }
