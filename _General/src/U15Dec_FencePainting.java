@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class _Template_old_USACO {
+public class U15Dec_FencePainting {
 
 	static BufferedReader in;
 	static PrintWriter out;
