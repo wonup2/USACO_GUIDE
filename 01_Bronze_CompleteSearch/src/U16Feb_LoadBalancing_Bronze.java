@@ -7,7 +7,7 @@ public class U16Feb_LoadBalancing_Bronze {
 	static int n, x[], y[];
 	
 	public static void main(String[] args) throws IOException {
-		// initialize file I/O
+
 		in = new Scanner(new FileReader("balancing.in"));
 		out = new PrintWriter(new BufferedWriter(new FileWriter("balancing.out")));
 		
