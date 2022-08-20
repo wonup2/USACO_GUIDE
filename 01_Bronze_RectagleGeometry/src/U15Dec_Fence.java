@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class U15BDec_Fence {
+public class U15Dec_Fence {
 	static Scanner in;
 	static boolean a[];
 	

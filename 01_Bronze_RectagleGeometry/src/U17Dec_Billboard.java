@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class U17BDec_Billboard {
+public class U17Dec_Billboard {
 
 	static Scanner in;
 	static boolean a[][];

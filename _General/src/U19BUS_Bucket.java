@@ -14,35 +14,36 @@ public class U19BUS_Bucket {
 
 		in = new Scanner(new File("buckets.in"));
 		out = new PrintWriter(new File("buckets.out"));
-		
-		a = new char[10][];
-		for(int i=0; i<10; i++)
-			a[i] = in.nextLine().toCharArray();
-		
-		
+						
+		init();
 		solve();
 		in.close();
 		out.close();
 	}
-
-	static void solve() {
+	
+	static void init() {
 		
 		for (int i=0; i<10; i++) {
-			for (int j=0; j<10; j++) {
-				if(a[i][j]=='B') {
-					br = i;
-					bc = j;
+			String s = in.nextLine();
+			
+			for(int j=0; j<s.length(); j++) {
+				if(s.charAt(j)=='B') {
+						br = i;
+						bc = j;
 				}
-				else if(a[i][j]=='R') {
-					rr = i;
-					rc = j;
+				else if(s.charAt(j)=='R') {
+						rr = i;
+						rc = j;
 				}
-				else if(a[i][j]=='L') {
-					lr = i;
-					lc = j;
+				else if(s.charAt(j)=='L') {
+						lr = i;
+						lc = j;
 				}
 			}
-		}
+		}		
+	}
+
+	static void solve() {		
 		
 		int ans = Math.abs(br-lr) + Math.abs(bc-lc)-1;
 		

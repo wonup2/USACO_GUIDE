@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 
-public class U18BJan_Billboard2 {
+public class U18Jan_Billboard2 {
 	
 	static Scanner in;
 	static PrintWriter out;

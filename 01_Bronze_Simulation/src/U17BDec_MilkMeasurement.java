@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class U17BDec_measurement {
+public class U17BDec_MilkMeasurement {
 
     static Scanner in;
     static PrintWriter out;

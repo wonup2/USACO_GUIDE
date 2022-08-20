@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.*;
 import java.util.*;
-public class U16BDec_Square {
+public class U16Dec_Square {
 
 	static Scanner in;
 	static PrintWriter out;
