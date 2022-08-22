@@ -7,8 +7,8 @@ public class U18US_TicTacToe {
 	static int one, two;
 	
 	public static void main(String[] args) throws IOException{
-		in = new Scanner(new FileReader("tttt.in"));
-        out = new PrintWriter(new BufferedWriter(new FileWriter("tttt.out")));
+		in = new Scanner(new FileReader("test.in"));
+        out = new PrintWriter(new BufferedWriter(new FileWriter("test.out")));
         init();
         solve();        
         out.close();
@@ -23,7 +23,6 @@ public class U18US_TicTacToe {
 	}
 	
 	static void solve() {
-		
 		TreeSet<Character>[] team = new TreeSet[8];
 		
 		for(int i=0; i<8; i++)
@@ -38,6 +37,9 @@ public class U18US_TicTacToe {
 			team[7].add(a[i][2-i]);
 		}
 		
+		System.out.println(Arrays.toString(team));
+		
+
 
 		HashSet<Character> one = new HashSet<Character>();
 		HashSet<String> two = new HashSet<String>();
