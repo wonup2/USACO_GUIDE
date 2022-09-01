@@ -23,7 +23,6 @@ public class U18US_TicTacToe {
 	}
 	
 	static void solve() {
-		
 		TreeSet<Character>[] team = new TreeSet[8];
 		
 		for(int i=0; i<8; i++)

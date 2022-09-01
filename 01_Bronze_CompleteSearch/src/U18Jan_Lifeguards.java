@@ -30,7 +30,9 @@ public class U18Jan_Lifeguards {
     }
 
     static void solve() {
+    	
         int total = 0;
+        
         for(int i=0; i<N; i++) {
             for(int j=s[i]; j<e[i]; j++) {
                 a[j]++;
@@ -40,6 +42,7 @@ public class U18Jan_Lifeguards {
         
         int noWatchTime = 10000;
         int count = 0;
+        
         for(int i=0; i<N; i++) {
             for(int j=s[i]; j<e[i]; j++) {
                 if(a[j] == 1) count++;
@@ -51,5 +54,4 @@ public class U18Jan_Lifeguards {
         total -= noWatchTime;
         out.println(total);
     }
-
 }
