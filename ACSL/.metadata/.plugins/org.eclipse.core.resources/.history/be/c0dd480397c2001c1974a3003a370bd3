@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Sorting1 {
+
+	public static void main(String[] args) {
+
+
+		int a[] = {3, 1, 2, 20, 14};
+		Arrays.sort(a);
+		System.out.println(Arrays.toString(a));
+		
+		ArrayList<Integer> b = new ArrayList<Integer>();
+		b.add(30);
+		b.add(130);
+		b.add(300);
+		b.add(34);
+		b.add(3);
+
+		Collections.sort(b);
+		System.out.println(b);
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class B11650 {
+	
+	static Scanner in;
+	
+	public static void main(String[] args) {
+
+		in = new Scanner(System.in);
+		
+		pair a[] = new pair[3];
+		
+		a[0] = new pair(1, 2);
+		a[1] = new pair(3, 4);
+		a[2] = new pair(5, 6);
+		
+		System.out.println(a[0].x +" "+a[0].y);
+		System.out.println(a[2].y);
+		
+		System.out.println(a[1]);
+	}
+
+	static class pair{
+		//data field
+		int x;
+		int y;
+		
+		//constructor
+		pair(int a, int b){
+			x = a;
+			y = b;
+		}	
+		
+		public String toSring() {
+			return x +" "+y;
+		}
+	}
+}
+
+/*
+5
+3 4
+1 1
+1 -1
+2 2
+3 3
+
+*/
