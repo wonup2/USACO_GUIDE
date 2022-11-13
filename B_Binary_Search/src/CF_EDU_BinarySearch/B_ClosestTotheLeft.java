@@ -1,5 +1,5 @@
 package CF_EDU_BinarySearch;
-
+//https://codeforces.com/edu/course/2/lesson/6/1/practice/contest/283911/problem/B
 import java.io.*;
 import java.util.*;
  

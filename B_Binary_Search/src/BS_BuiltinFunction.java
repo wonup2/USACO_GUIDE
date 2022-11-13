@@ -10,7 +10,9 @@ public class BS_BuiltinFunction {
 	public static void main(String[] args) {
 		
 		int[] a = {1,3,4,19,10};
+		
 		Arrays.sort(a);
+		
 		System.out.println(Arrays.toString(a));  //{1,3,4,10,19};
 		
 		int n = Arrays.binarySearch(a, 4);		//2

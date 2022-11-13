@@ -29,7 +29,7 @@ public class E_SocialDistancing{
 			f=first; s=second;
 		}		
 		public int compareTo(Pair that) {				
-			if(this.f==that.f) return this.s-that.s;			
+			//if(this.f==that.f) return this.s-that.s;			
 			return this.f-that.f;		
 		}
 		@Override
@@ -74,22 +74,18 @@ public class E_SocialDistancing{
 		pw.println(ans);
 	}
 	
-	
-	
-	
 	static boolean f(long mid) {
 		
-		long cur = -MAX;		
-		int cow = 0;
+		long cur = a[0].f;	
+		int cow = 1;
 		
 		for(Pair p:a) {
-			
-			while(Math.max(cur+mid, p.f)<=p.s){
-				cur=Math.max(cur+mid, p.f);
+	
+			while(Math.max(cur+mid, p.f) <= p.s){
+				cur=Math.max(cur+mid, p.f);				
 				cow++;
 				if(cow>=N) return true;
-			}
-			
+			}			
 		}	
 		
 		return false;
