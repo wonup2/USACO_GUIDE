@@ -31,9 +31,11 @@ public class F_Loan {
 		long left = N;
 		while (true) {
 			long y = left/x;
-		    if (y <= M) y = M; 		    
-		    left -= y;
-		    days--;
+		    if (y <= M) return days*M >= left; 
+		    
+		    long jump = (left % x) / y + 1;
+		    left -= y*jump;
+		    days-=jump;
 		    if(days<=0) break;
 		}
 		return left <= 0;

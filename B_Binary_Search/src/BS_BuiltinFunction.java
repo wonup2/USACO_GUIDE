@@ -9,19 +9,29 @@ public class BS_BuiltinFunction {
 
 	public static void main(String[] args) {
 		
-		int[] a = {1,3,4,19,10};
+		int[] a = {1,3,4,10,10, 10, 10, 19};
 		
 		Arrays.sort(a);
 		
 		System.out.println(Arrays.toString(a));  //{1,3,4,10,19};
 		
-		int n = Arrays.binarySearch(a, 4);		//2
+		int find = 10;
+		int n = Arrays.binarySearch(a, find);		//2
 		
-		n = Arrays.binarySearch(a, 11);   		// -5
+		System.out.println(find +": " + n);
+		
+		find = 11;
+		n = Arrays.binarySearch(a, find);   		// -5 { 1, 3, 4, 10 <11> 19 } 		
+		System.out.println(find +": " + n);
 		
 		int lower = Math.abs(n) - 2;  			//lower bound: 10
 		
 		int upper = Math.abs(n) - 1;  			//upper bound: 19
+		
+		System.out.println(a[lower] +" "+ a[upper]);
+		
+		
+		
 		
 		
 
