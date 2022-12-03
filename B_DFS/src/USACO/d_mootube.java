@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class C_mootube {
+public class d_mootube {
 	
 	static BufferedReader in;
 	static PrintWriter out;

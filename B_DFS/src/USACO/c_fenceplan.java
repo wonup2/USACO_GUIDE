@@ -4,7 +4,7 @@ package USACO;
 import java.util.*;
 import java.io.*;
 
-public class A_fenceplan {
+public class c_fenceplan {
 
 	static Scanner in;
 	static PrintWriter out;

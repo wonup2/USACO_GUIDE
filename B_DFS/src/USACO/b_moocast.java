@@ -4,7 +4,7 @@ package USACO;
 import java.util.*;
 import java.io.*;
 
-public class B_moocast{
+public class b_moocast{
 
 	public static int n, cnt, x[], y[], p[];
 	public static boolean[] v;
