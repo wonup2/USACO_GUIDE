@@ -1,7 +1,8 @@
 package USACO;
+
+//2016 US Open Silver 3
 import java.util.*;
 import java.io.*;
-//2016 US Open Silver 3
 public class a_closingfarm {
 	static BufferedReader in;
 	static StringTokenizer st;
@@ -44,17 +45,17 @@ public class a_closingfarm {
 		boolean[] closed = new boolean[n];
 		
 		for(int i = 0; i < n; i++) {
-			while(closed[start]) start++;
-			//if(closed[i]) continue;
 			
+			while(closed[start]) start++;			
 			v = closed.clone();
-			cnt = 0;
 			
+			cnt = 0;			
 			dfs(start);
-			if(cnt + i == n) out.println("YES");
+			if(cnt == n - i) out.println("YES");
 			else out.println("NO");
 			
 			closed[Integer.parseInt(in.readLine()) - 1] = true;
+			
 		}
 		out.close();
 	}
