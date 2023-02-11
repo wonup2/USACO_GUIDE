@@ -18,6 +18,9 @@ public class B_ClosestTotheLeft{
         	int t=Integer.parseInt(st.nextToken());
         	a.put(t, i);
         }
+        
+        System.out.println(a);
+        
 		StringBuilder sb = new StringBuilder();
         st = new StringTokenizer(in.readLine());
         for(int i=0; i<m; i++) {

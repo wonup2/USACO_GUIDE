@@ -9,21 +9,26 @@ public class BS_BuiltinFunction {
 
 	public static void main(String[] args) {
 		
-		int[] a = {1,3,4,10,10, 10, 10, 19};
+		int[] a = {1, 3, 4, 10, 19};
 		
 		Arrays.sort(a);
 		
-		System.out.println(Arrays.toString(a));  //{1,3,4,10,19};
+		System.out.println(Arrays.toString(a));  	//{1,3,4,10,19};
 		
 		int find = 10;
-		int n = Arrays.binarySearch(a, find);		//2
+		
+		int n = Arrays.binarySearch(a, find);		//3
 		
 		System.out.println(find +": " + n);
 		
 		find = 11;
-		n = Arrays.binarySearch(a, find);   		// -5 { 1, 3, 4, 10 <11> 19 } 		
+		
+		n = Arrays.binarySearch(a, find);   		// -5 { 1, 3, 4, 10, <11>, 19 } 	
+		
 		System.out.println(find +": " + n);
 		
+		
+		//a = { 1, 3, 4, 10, <11>, 19 } 
 		int lower = Math.abs(n) - 2;  			//lower bound: 10
 		
 		int upper = Math.abs(n) - 1;  			//upper bound: 19
@@ -31,7 +36,10 @@ public class BS_BuiltinFunction {
 		System.out.println(a[lower] +" "+ a[upper]);
 		
 		
-		
+		/*
+		 USACO 2016 December Contest, Silver Problem 1. Counting Haybales
+		 http://www.usaco.org/index.php?page=viewproblem2&cpid=666
+		*/
 		
 		
 
@@ -51,5 +59,7 @@ public class BS_BuiltinFunction {
 		upper = tm.higherKey(11);			
 		System.out.println(upper);			//19
 		System.out.println(tm.get(upper));	//5
+		
+		
 	}
 }
