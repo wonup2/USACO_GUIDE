@@ -4,13 +4,27 @@ import java.io.*;
 import java.util.*;
  
 public class B_ClosestTotheLeft{
+	
+	static BufferedReader in;
+	static StringTokenizer st;
+	
+	static int n, k;
+	static TreeMap<Integer, Integer> a;
+	
     public static void main(String[] args) throws NumberFormatException, IOException{
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(in.readLine());
+        in = new BufferedReader(new InputStreamReader(System.in));        
  
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-        TreeMap<Integer, Integer> a = new TreeMap<Integer, Integer>();
+        init();
+        solve();
+    }
+    
+    static void init() throws IOException {
+    	
+    	st = new StringTokenizer(in.readLine());
+        n = Integer.parseInt(st.nextToken());
+        k = Integer.parseInt(st.nextToken());
+        
+        a = new TreeMap<Integer, Integer>();
                 
         st = new StringTokenizer(in.readLine());
         
@@ -19,11 +33,14 @@ public class B_ClosestTotheLeft{
         	a.put(t, i);
         }
         
-        System.out.println(a);
-        
+        //System.out.println(a);
+    }
+    
+    static void solve() throws IOException {
+                
 		StringBuilder sb = new StringBuilder();
         st = new StringTokenizer(in.readLine());
-        for(int i=0; i<m; i++) {
+        for(int i=0; i<k; i++) {
         	int key = Integer.parseInt(st.nextToken());
         	if(a.containsKey(key)) sb.append(a.get(key));
         	else if(a.lowerKey(key)!=null) sb.append(a.get(a.lowerKey(key)));

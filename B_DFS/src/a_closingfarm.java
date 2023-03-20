@@ -1,5 +1,3 @@
-
-
 //2016 US Open Silver 3
 import java.util.*;
 import java.io.*;

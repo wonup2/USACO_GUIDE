@@ -1,11 +1,9 @@
 package USACO;
-//USACO 2018 January Contest, Silver Problem 3. MooTube
 
 import java.io.*;
 import java.util.*;
 
-
-public class d_mootube {
+public class US18_JAN_SIL_mootube {
 	
 	static BufferedReader in;
 	static PrintWriter out;
