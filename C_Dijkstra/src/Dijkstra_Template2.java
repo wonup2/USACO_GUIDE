@@ -14,7 +14,7 @@ public class Dijkstra_Template2 {
 	static void solve() {
 		n = in.nextInt();
 		m = in.nextInt();
-		s = in.nextInt()-1;
+		s = in.nextInt();
 		a = new ArrayList[n];
 		d = new int[n];
 		v = new boolean[n];

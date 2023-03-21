@@ -3,12 +3,19 @@ import java.util.*;
 
 public class Permutation {
 	static HashSet<String> p;
-	static int mask[];
+	static int mask[], n;
+	static ArrayList<Integer> list;
 	public static void main(String[] a) {		
 		p=new HashSet<String>();
 
 		permutation("");
 		System.out.println(p.size());
+		
+		n = 10;
+		for(int i=0; i<n; i++) {
+			list = new ArrayList<Integer>();
+			permu(i);
+		}
 		
 		//mask = new int[5];
 		//permutation(5);
@@ -35,6 +42,18 @@ public class Permutation {
 		
 		for(int i=0; i<5; i++) {			
 			if(!s.contains(i+"")) permutation(s+i);
+		}
+	}
+	
+	static void permu(int start) {
+		list.add(start);
+		if(list.size()==6) {
+			System.out.println(list);
+		}
+		
+		for(int i=start+1; i<n; i++) {
+			permu(i);
+			list.remove(list.size()-1);
 		}
 	}
 	
