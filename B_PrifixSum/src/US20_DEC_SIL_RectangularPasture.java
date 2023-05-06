@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class RectangularPasture {
+public class US20_DEC_SIL_RectangularPasture {
 	
 	static Scanner in;
 	static int n, a[][], x[], y[];

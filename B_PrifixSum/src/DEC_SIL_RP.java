@@ -20,8 +20,8 @@ public class DEC_SIL_RP{
 		    xp.put(x, i);
 		    yp.put(y, i);
 		}
-//		System.out.println(xp);
-//		System.out.println(yp);
+		System.out.println(xp);
+		System.out.println(yp);
 
 		int x[] = new int[N];
 		int y[] = new int[N];
@@ -38,13 +38,13 @@ public class DEC_SIL_RP{
 		
 		for (int i=0; i<N; i++) 
 			a[x[i]][y[i]]++;
-		//print(a);
+		print(a);
 
 		for (int i=1; i<=N; i++)
 		    for (int j=1; j<=N; j++)
 		      a[i][j] += a[i-1][j] + a[i][j-1] - a[i-1][j-1];
 		  
-		//print(a);
+		print(a);
 		long ans = N+1;
 		for (int i = 0; i < N; i++) {
             for (int  j= i + 1; j < N; j++) {

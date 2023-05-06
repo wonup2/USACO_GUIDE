@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class CSES1643 {
+public class CSES1643maximumSubarraySum {
 
 	static BufferedReader in;
 	static StringTokenizer st;

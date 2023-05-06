@@ -3,7 +3,7 @@
 import java.util.*;
 import java.io.*;
 
-public class bcount {
+public class US15_DEC_SIL_bcount {
 
 	static BufferedReader in;
 	static PrintWriter out;
