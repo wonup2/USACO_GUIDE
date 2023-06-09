@@ -10,8 +10,8 @@ public class US17_SIL_maxacross {
 	static int a[], p[];
 	public static void main(String[] args) throws IOException{
 		
-		in = new BufferedReader(new FileReader("maxcross.in"));
-		out = new PrintWriter(new File("maxcross.out"));
+		in = new BufferedReader(new FileReader("test.in"));
+		out = new PrintWriter(new File("test.out"));
 		init();
 		solve();		
 		in.close();
@@ -30,9 +30,12 @@ public class US17_SIL_maxacross {
 		
 		Arrays.fill(a, 1);
 		for(int i=0; i<b; i++) a[Integer.parseInt(in.readLine())] = 0;
+		
+		System.out.println(Arrays.toString(a));
+		
 		for(int i=1; i<=n; i++) p[i] = p[i-1] + a[i];
 		
-		//System.out.println(Arrays.toString(p));
+		System.out.println(Arrays.toString(p));
 	}
 
 	static void solve() throws IOException {

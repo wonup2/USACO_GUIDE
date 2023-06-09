@@ -25,7 +25,6 @@ public class U16BDec_blocks {
     	a = new int[26];
     	b = new int[26];
     	c = new int[26];
-    	
     }
     
     static void solve() throws IOException {

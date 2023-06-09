@@ -16,15 +16,10 @@ public class CF1216_WhiteSheet {
 		b = new point(in.nextInt(), in.nextInt(), in.nextInt(), in.nextInt());
 		c = new point(in.nextInt(), in.nextInt(), in.nextInt(), in.nextInt());
 	}
+	
 	static void solve() {
-		long overlap = ol(a, b) + ol(a, c) - ol(a, b, c);
-//		System.out.println(ol(a, b));
-//		System.out.println(ol(a, c));
-//		System.out.println(ol(a, b, c));
- 
-		long area = Math.abs(a.x1-a.x2) * Math.abs(a.y1-a.y2);
-		
-//		System.out.println(area);
+		long overlap = ol(a, b) + ol(a, c) - ol(a, b, c); 
+		long area = Math.abs(a.x1-a.x2) * Math.abs(a.y1-a.y2);		
 		
 		if(overlap < area) System.out.println("YES");
 		else System.out.println("NO");
@@ -35,6 +30,7 @@ public class CF1216_WhiteSheet {
 		long rightX = Math.min(a.x2, b.x2);
 		long bottomY = Math.max(a.y1, b.y1);
 		long upY = Math.min(a.y2, b.y2);
+		
 		if(leftX>rightX||bottomY>upY) return 0;
 		return (rightX-leftX)*(upY-bottomY);
 	}

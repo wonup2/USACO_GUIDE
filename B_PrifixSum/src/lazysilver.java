@@ -9,7 +9,6 @@ public class lazysilver {
 
 	public static void main(String[] args) throws Exception {
 		
-		// Read in the basic graph parameters.
 		BufferedReader stdin = new BufferedReader(new FileReader("lazy.in"));
 		StringTokenizer tok = new StringTokenizer(stdin.readLine());
 		int n = Integer.parseInt(tok.nextToken());
@@ -23,9 +22,12 @@ public class lazysilver {
 		// Read in the grid, directly into the mapped location.
 		for (int i=0; i<n; i++) {
 			tok = new StringTokenizer(stdin.readLine());
-			for (int j=0; j<n; j++) 
+			for (int j=0; j<n; j++) {
 				vals[i+j+1][i-j+n] = Integer.parseInt(tok.nextToken());
+				//System.out.println(i+ " "+j + " : "+(i+j+1)+" "+(i-j+n));
+			}
 		}
+		print(vals);
 		
 		// Remap k for this new grid size 1->3, 2->5, etc.
 		k = Math.min(2*k+1, 2*n);
@@ -40,7 +42,8 @@ public class lazysilver {
 			for (int i=1; i<vals.length; i++)
 				vals[i][j] += vals[i-1][j];
 		
-		System.out.println(Arrays.deepToString(vals));
+	//	print(vals);
+	//	System.out.println(Arrays.deepToString(vals));
 		
 		int res = 0;
 				
@@ -57,5 +60,16 @@ public class lazysilver {
 		out.println(res);
 		out.close();		
 		stdin.close();
+	}
+	
+	static void print(int[][] a) {
+		System.out.println();
+		for(int i=0; i<a.length; i++) {
+			for(int j=0; j<a.length; j++) {
+				System.out.print(a[i][j]+" ");
+			}
+			System.out.println();
+			
+		}
 	}
 }
