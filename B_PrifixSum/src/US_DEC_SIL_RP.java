@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class DEC_SIL_RP{
+public class US_DEC_SIL_RP{
 		
 	static Scanner in;
 	static int N, a[][];

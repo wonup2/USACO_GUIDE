@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class lazy {
+public class US14_MAR_BR_lazy {
 
     static BufferedReader in;
     static StringTokenizer st;
