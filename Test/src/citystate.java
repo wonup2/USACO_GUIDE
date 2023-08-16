@@ -1,12 +1,26 @@
 import java.util.*;
 import java.io.*;
-public class U19DEC_whereami {
+
+public class citystate {
+	
 	static Scanner in;
 	static PrintWriter out;
 	static String file = "whereami";
 	static int n;
 	static HashSet<String> a;
 	static String s;
+	
+
+	public static void main(String[] args) throws IOException {
+		in = new Scanner(new File(file+".in"));
+		out = new PrintWriter(new File(file+".out"));
+		
+		init();
+		solve();
+	
+		in.close();
+		out.close();
+	}
 	
 	static void init() {
 		n = in.nextInt();
@@ -24,14 +38,5 @@ public class U19DEC_whereami {
 				break;
 			}
 		}
-	}
-	
-	public static void main(String[] args) throws IOException {
-		in = new Scanner(new File(file+".in"));
-		out = new PrintWriter(new File(file+".out"));		
-		init();
-		solve();	
-		in.close();
-		out.close();
 	}
 }

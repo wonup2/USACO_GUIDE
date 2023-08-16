@@ -45,18 +45,12 @@ public class US14_MAR_SIL_lazy {
 		// Remap k for this new grid size 1->3, 2->5, etc.
 		k = Math.min(2*k+1, 2*n);
 		
-		// Do cumulative sums for each row.
+		// prifix Sum
 		for (int i=1; i<a.length; i++)
 			for (int j=1; j<a.length; j++)
 				a[i][j] += a[i][j-1] + a[i-1][j] - a[i-1][j-1];
-				
-		// And then for the columns.
-		//for (int j=0; j<a.length; j++)
-		//	for (int i=1; i<a.length; i++)
-		//		a[i][j] += a[i-1][j];
-		
+
 		print(a);
-	//	System.out.println(Arrays.deepToString(vals));
 		
 		int res = 0;
 				
