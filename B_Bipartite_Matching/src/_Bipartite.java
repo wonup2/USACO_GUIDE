@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Bipartite {
+public class _Bipartite {
 	
 	static int graph[][] = 
 		   {{0, 0, 0, 0, 1, 1, 1, 0},

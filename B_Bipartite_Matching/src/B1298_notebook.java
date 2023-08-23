@@ -5,7 +5,7 @@ public class B1298_notebook {
 
 	static List<Integer>[] a;
 	static boolean[] v;
-	static int n, m, b[];
+	static int n, m, node[];
 	static BufferedReader in;
 	static StringTokenizer st;
 	
@@ -34,7 +34,7 @@ public class B1298_notebook {
 		}
 		
 		v = new boolean[n+1];
-		b = new int[n+1];
+		node = new int[n+1];
 	}
 	
 	static void solve() {
@@ -45,6 +45,7 @@ public class B1298_notebook {
 			Arrays.fill(v, false);
 			if(dfs(i)) cnt++; 
 		}
+		
 		System.out.println(cnt);
 	}
 	
@@ -54,8 +55,8 @@ public class B1298_notebook {
 			
 			if(v[i]) continue;
 			v[i]=true;
-			if(b[i]==0 || dfs(b[i])) {
-				b[i] = cow;
+			if(node[i]==0 || dfs(node[i])) {
+				node[i] = cow;
 				return true;
 			}
 		}

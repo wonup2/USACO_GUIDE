@@ -5,7 +5,7 @@ public class B9576_book {
 
 	static List<Integer>[] a;
 	static boolean[] v;
-	static int t, n, m, b[];
+	static int t, n, m, book[];
 	static BufferedReader in;
 	static StringTokenizer st;
 	
@@ -32,12 +32,12 @@ public class B9576_book {
 			st = new StringTokenizer(in.readLine());
 			int x = Integer.parseInt(st.nextToken());
 			int y = Integer.parseInt(st.nextToken());
-			for(int j=x; j<=y; j++) 
+			for(int j=x; j<=y; j++) //<----- 1번에서 3번책
 				a[i].add(j);
 		}
 		
 		v = new boolean[n+1];
-		b = new int[n+1];				
+		book = new int[n+1];				
 	}
 	
 	static void solve() {
@@ -56,8 +56,8 @@ public class B9576_book {
 			
 			if(v[i]) continue;
 			v[i]=true;
-			if(b[i]==0 || dfs(b[i])) {
-				b[i] = st;
+			if(book[i]==0 || dfs(book[i])) {
+				book[i] = st;
 				return true;
 			}
 		}

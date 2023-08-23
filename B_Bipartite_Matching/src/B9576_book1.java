@@ -48,6 +48,10 @@ public class B9576_book1 {
 			}
 		});
 			
+		System.out.println(Arrays.toString(a.get(0)));
+		System.out.println(Arrays.toString(a.get(1)));
+		System.out.println(Arrays.toString(a.get(2)));
+
 
 		int total=0;
 		for(int[] num : a) {
@@ -57,7 +61,7 @@ public class B9576_book1 {
 				if(!v[i]) {
 					v[i] = true;
 					total++;
-					break;
+					break; //<--- 한권 가졌으니까 꺼져
 				}
 			}
 		}
