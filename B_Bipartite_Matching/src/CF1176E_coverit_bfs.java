@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class CF1176E_coverit{
+public class CF1176E_coverit_bfs{
 
 	static BufferedReader in;
 	static PrintWriter out;
@@ -35,11 +35,12 @@ public class CF1176E_coverit{
 
 	static void solve() {
 		
-		dfs(1, 1);
+		bfs(1);
 		
 		StringBuilder sb1 = new StringBuilder();
 		StringBuilder sb2 = new StringBuilder();
 
+		System.out.println(Arrays.toString(node));
 		int cnt1=0, cnt2=0;
 		for(int i=1; i<=n; i++) {
 			if(node[i]==1) {
@@ -62,13 +63,18 @@ public class CF1176E_coverit{
 		}
 	}
 	
-	static void dfs(int i, int c) {
-		v[i] = true;
-		node[i] = c;
+	static void bfs(int i) {
+		Queue<Integer> q = new LinkedList<Integer>();
+		node[i] = 1;
+		q.add(i);
 		
-		for(int next:a[i]) {
-			if(v[next]) continue;
-			dfs(next, c*-1);
+		while(!q.isEmpty()) {
+			i = q.poll();
+			for(int next:a[i]) {
+				if(node[next]!=0) continue;
+				node[next] = node[i]*-1;
+				q.add(next);
+			}
 		}
 	}
 	
