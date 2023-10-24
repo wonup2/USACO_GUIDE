@@ -3,7 +3,7 @@ import java.io.*;
 public class U19DEC_whereami {
 	static Scanner in;
 	static PrintWriter out;
-	static String file = "whereami";
+	static String file = "test";
 	static int n;
 	static HashSet<String> a;
 	static String s;

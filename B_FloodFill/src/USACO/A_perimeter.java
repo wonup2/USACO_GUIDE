@@ -45,7 +45,7 @@ public class A_perimeter {
 			}
 		}
 		
-		System.out.println(Mcnt + " " + Mper);
+		out.println(Mcnt + " " + Mper);
 		out.close();
 	}
 	
