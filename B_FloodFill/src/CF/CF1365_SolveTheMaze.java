@@ -12,10 +12,6 @@ public class CF1365_SolveTheMaze {
 	static int n;
 	static int m;
 
-	static boolean isAvailable(int x, int y) {
-		return x >= 0 && x < n && y >= 0 && y < m;
-	}
-
 	static void floodfill(int x, int y) {
 		v[x][y] = true;
 		for (int i = 0; i < 4; i++) {  
