@@ -2,77 +2,85 @@ import java.util.*;
 import java.io.*;
 
 public class CF1365_maze {
-
+	
+	static int t, n, m, dx[]= {0, 0, -1, 1}, dy[]= {-1, 1, 0, 0};
+	static char a[][]; 
+	static boolean v[][];
+	
 	static BufferedReader in;
 	static StringTokenizer st;
-	static int n, m, dx[] = {0, 0, -1, 1}, dy[]= {-1, 1, 0, 0};
-	static char a[][];
-	static boolean v[][];
 
-	public static void main(String[] args) throws IOException {
-
-		in = new BufferedReader(new InputStreamReader(System.in));
+	static void ff(int i, int j) {
 		
-		int t = Integer.parseInt(in.readLine());
-		while(t-->0) {
-			init();
-			System.out.println(solve());
-		}
+		if(i<0||j<0||i>=n||j>=m||v[i][j]||a[i][j]=='#') return;
+		
+		v[i][j]=true;
+		ff(i+1, j);
+		ff(i-1, j);
+		ff(i, j+1);
+		ff(i, j-1);
+		
 	}
 	
-	static void init() throws IOException {
-		
-		st = new StringTokenizer(in.readLine());
-		n = Integer.parseInt(st.nextToken());
-		m = Integer.parseInt(st.nextToken());
-		a = new char[n][m];
-		v = new boolean[n][m];
-		
-		for(int i=0; i<n; i++) 
-			a[i] = in.readLine().toCharArray();
-		
-	}
-
 	static String solve() {
 		
+		//blocking B 
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<m; j++) {
 				if(a[i][j]=='B') {
 
 					for(int k=0; k<4; k++) {
-						int nx = i+dx[k];
-						int ny = j+dy[k];
-						if(nx<0||ny<0||nx>=n||ny>=m) continue;
-						if(a[nx][ny]=='G') return "No";
-						if(a[nx][ny]=='.') a[nx][ny]='#';
-							
+						int ni = i+dx[k];
+						int nj = j+dy[k];
+						
+						if(ni<0||nj<0||ni>=n||nj>=m) continue;
+						if(a[ni][nj]=='G') return "No";
+						if(a[ni][ni]=='.') a[ni][nj]='#';
 					}
 				}
 			}
 		}
 		
 		
-		if(a[n-1][m-1] != '#') ff(n-1, m-1);
+		//check G
+		if(a[n-1][m-1] !='#') ff(n-1, m-1);
 		
+		// a[][] : v[][]
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<m; j++) {
-				if(a[i][j]=='G' && !v[i][j]) return "No";
+				if(a[i][j] =='G' && !v[i][j]) return "No";
 			}
 		}
 		
 		return "Yes";
 	}
 	
-	static void ff(int i, int j) {
+	static void init() throws IOException {
+		st = new StringTokenizer(in.readLine());
+		n = Integer.parseInt(st.nextToken());
+		m = Integer.parseInt(st.nextToken());
 		
-		if(i<0||j<0||i>=n||j>=m||v[i][j]||a[i][j]=='#') return;
+		a = new char[n][m];
 		
-		v[i][j] = true;
+		for(int i=0; i<n; i++) {
+			a[i] = in.readLine().toCharArray();
+		}
 		
-		ff(i, j+1);
-		ff(i, j-1);
-		ff(i+1, j);
-		ff(i-1, j);
-		
+		//System.out.println(Arrays.deepToString(a));
+		v = new boolean[n][m];
 	}
+	
+	
+	public static void main(String[] args) throws IOException {
+
+		in = new BufferedReader(new InputStreamReader(System.in));
+		
+		t = Integer.parseInt(in.readLine());
+		
+		while(t-->0) {
+			init();
+			System.out.println(solve());
+		}
+	}
+
 }
