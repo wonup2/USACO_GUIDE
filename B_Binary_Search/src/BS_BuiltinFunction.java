@@ -9,7 +9,7 @@ public class BS_BuiltinFunction {
 
 	public static void main(String[] args) {
 		
-		int[] a = {1, 10, 10, 10, 10, 10, 10, 19};
+		int[] a = {1, 10, 3, 4, 19};
 		
 		Arrays.sort(a);
 		
@@ -24,8 +24,7 @@ public class BS_BuiltinFunction {
 		
 		
 		//a = { 1, 3, 4, 10, <11>, 19 } 
-		int lower = Math.abs(n) - 2;  			//lower bound: 10
-		
+		int lower = Math.abs(n) - 2;  			//lower bound: 10		
 		int upper = Math.abs(n) - 1;  			//upper bound: 19
 		
 		//System.out.println(a[lower] +" "+ a[upper]);
