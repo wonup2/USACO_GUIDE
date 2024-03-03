@@ -5,7 +5,7 @@ public class BFS_Template1 {
 	static Scanner in;
 	static boolean[] v;
 	static ArrayList<Integer>[] a;
-	static int n, m, s;
+	static int n, m, ans;
 	
 	public static void main(String[] args) {
 		in = new Scanner(System.in);		
@@ -14,8 +14,7 @@ public class BFS_Template1 {
 	
 	static void init() {
 		n = in.nextInt();
-		m = in.nextInt();
-		int s = in.nextInt()-1;
+		m = in.nextInt();		
 		
 		v = new boolean[n];
 		a = new ArrayList[n];
@@ -23,14 +22,39 @@ public class BFS_Template1 {
 			a[i] = new ArrayList<Integer>();
 		
 		for(int i=0; i<m; i++){
-			int u = in.nextInt()-1;
-			int v = in.nextInt()-1;
-			a[u].add(v);
-			a[v].add(u);
-		}
-			
-		bfs(s);
+			int x = in.nextInt()-1;
+			int y = in.nextInt()-1;
+			a[x].add(y);
+			a[y].add(x);
+		}		
+		
+		v = new boolean[n];
+		//System.out.println(Arrays.toString(a));
 	}
+	
+	static void solve() {
+		for(int i=0; i<n; i++) {
+			if(!v[i]) {
+				dfs(i);
+				ans++;
+			}
+		}
+		
+		System.out.println(ans);
+	}
+	
+	
+	static void dfs(int i) {
+		
+		v[i] = true;
+		
+		for(int node: a[i]) {
+			
+			if(v[node]) continue;
+			dfs(node);
+		}
+	}
+	
 	
 	static void bfs(int s){
 		
@@ -52,14 +76,12 @@ public class BFS_Template1 {
 
 
 /*
-4 5 1
+6 4 
 1 2
 1 3
-1 4
-2 4
-3 4
+4 5
+5 6
 
 
-1 2 4 3  DFS
-1 2 3 4  BFS
+2
 */

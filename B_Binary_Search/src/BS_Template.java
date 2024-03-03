@@ -53,6 +53,6 @@ public class BS_Template {
 //			
 //		}
 		
-		return c <= mid;
+		return c <= m;
 	}	
 }
